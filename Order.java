@@ -21,19 +21,15 @@ public class Order {
 	@Column(name="ORDID",length=3)
 	private int orderId;
 	
-	
+	@Column(name="ORDERDATE")
+	private LocalDate orderDate;
 	
 	 @ManyToOne
 	 @JoinColumn(name="custid")
 	 private Customer customer;
 	 
 	 
-	 @OneToMany(mappedBy="Order",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-		private List<Item> item;
-		
-
-	
-	public Customer getCustomer() {
+	 public Customer getCustomer() {
 		return customer;
 	}
 
@@ -41,6 +37,17 @@ public class Order {
 		this.customer = customer;
 	}
 
+	public List<Item> getItem() {
+		return item;
+	}
+
+	public void setItem(List<Item> item) {
+		this.item = item;
+	}
+
+	@OneToMany(mappedBy="Order",fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+		private List<Item> item;
+	
 	public int getOrderId() {
 		return orderId;
 	}
@@ -81,9 +88,6 @@ public class Order {
 		this.total = total;
 	}
 
-	@Column(name="ORDERDATE")
-	private LocalDate orderDate;
-	
 	@Column(name="COMMPLAN",length=1)
 	private String commPlan;
 	
