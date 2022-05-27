@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title> Function1 </title>
+		<script>
+			function ask(question,p ,n){
+				if(confirm(question))
+					p();
+				else
+					n();
+				
+			}
+			
+			ask('how are you',
+				function(){
+					alert('Im good');
+					alert('Im doing great');
+				}, 
+				function(){
+					alert('I will do good ');
+					alert('I will do great');
+				});
+			ask('how is life',
+				function(){
+					alert('Life is exciting');
+					alert('Life is beautiful');
+				}, 
+				function(){
+					alert('Life will be exciting');
+					alert('Life will be beautiful');
+				});
+			//ask('what are you doing','working','sitting idle');
+			
+		</script>
+	</head>
+	<body>
+		<h1> hello heading 1 </h1>
+		<h2> hello heading 2 </h2>
+		<h3> hello heading 3 </h3>
+	</body>
+</html>
